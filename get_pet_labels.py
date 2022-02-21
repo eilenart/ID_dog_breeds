@@ -15,28 +15,23 @@
 #          a 'value' that's a list. This list will contain the following item
 #          at index 0 : pet image label (string).
 #
-##
-# Imports python modules
-from os import listdir
 
-# TODO 2: Define get_pet_labels function below please be certain to replace None
-#       in the return statement with results_dic dictionary that you create 
-#       with this function
-# 
-def get_pet_labels(image_dir):
+from os import listdir                          #importing the relevant python function
+ 
+def get_pet_labels(image_dir):                  #defining function and parameter
    
-    filenames = listdir(image_dir)  #lists all files
+    files = listdir(image_dir)                  #lists all files
     
-    results_dic = dict() #creating emtpy dictionary for results
+    results_dic = dict()                        #creating emtpy dictionary for results
           
-    for name in filenames:
-        pet_name = name.lower().split("_")
-        full_name = ""
-        for word in pet_name:
-            if word.isalpha():
-                full_name += word + " "
-        pet_label = full_name.strip()
-        results_dic[name] = [pet_label]
+    for name in files:                          #processing through the files
+        if name[0] != ".":                      #skips names starting with dot
+            pet_name = name.lower().split("_")  #formatting pet name to the required format
+            full_name = ""                      #creating variable for full name
+            for word in pet_name:               #processing pet names
+                if word.isalpha():              #if the word is alphanumeric
+                    full_name += word + " "     #add word to full_name
+            pet_label = full_name.strip()       #defining pet label as stripped full name
+            results_dic[name] = [pet_label]     #storing pet labels in name
       
-    print(results_dic)
-    return results_dic
+    return results_dic                          #returns results
