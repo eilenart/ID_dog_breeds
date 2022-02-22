@@ -50,7 +50,7 @@ def print_results(results_dic, results_stats_dic, model,                        
         for key in results_dic:
 
             if results_dic[key][3] == 1 and results_dic[key][4] == 0 or results_dic[key][3] == 0 and results_dic[key][4] == 1:
-                print(results_dic[key][0], results_dic[key][1])
+                print("Real: {:>26}   Classifier: {:>30}".format(results_dic[key][0],results_dic[key][1]))
               
                                                                                             #printing out incorrectly classified breeds
                                                                                             #when print_incorrect_breeds argument is set to True
